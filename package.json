@@ -1,0 +1,26 @@
+{
+  "name": "antigravity-donor-monorepo",
+  "version": "1.0.0",
+  "description": "Multi-region (US, EU, IN) Anti-gravity Donor Portal & Payment Aggregator Monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "db:generate": "prisma generate --schema=libs/prisma/schema.prisma",
+    "db:push": "prisma db push --schema=libs/prisma/schema.prisma",
+    "docker:up": "docker-compose -f infra/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f infra/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "prisma": "^5.18.0",
+    "turbo": "^2.0.12",
+    "typescript": "^5.4.5"
+  }
+}
